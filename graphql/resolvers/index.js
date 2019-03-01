@@ -47,7 +47,7 @@ module.exports = {
 			return Object.assign({ _id: url }, newPageBase)
 		}
 
-		var isUniqueVisit = oldPage.visits.findIndex(v => v.ip == ip) > 0
+		var isUniqueVisit = oldPage.visits.findIndex(v => v.ip == ip) == -1
 		var newPage = {
 			visitorCount: oldPage.visitorCount + 1,
 			visitorCountUnique: oldPage.visitorCountUnique + (isUniqueVisit ? 1 : 0),
