@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const bodyParser = require('body-parser')
 const graphqlHTTP = require('express-graphql')
 
@@ -9,6 +10,7 @@ const rootValue = require('./graphql/resolvers')
 
 app.enable('trust proxy')
 app.use(bodyParser.json())
+app.use(cors())
 app.use('/api', graphqlHTTP({
 	schema,
 	rootValue
