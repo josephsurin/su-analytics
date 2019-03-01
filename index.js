@@ -6,6 +6,7 @@ const graphqlHTTP = require('express-graphql')
 const schema = require('./graphql/schema')
 const rootValue = require('./graphql/resolvers')
 
+app.enable('trust proxy')
 app.use('/api', graphqlHTTP({
 	schema,
 	rootValue,

@@ -13,17 +13,13 @@ module.exports = buildSchema(`
 		visits: [Visit]
 	}
 
-	input VisitInput {
-		ip: String
-		date: String!
-	}
-
 	type RootQuery {
 		pages: [Page!]!
+		page(url: String!): Page
 	}
 
 	type RootMutation {
-		addVisit(visitInput: VisitInput): Visit
+		addVisit(url: String!): Page
 	}
 
 	schema {
